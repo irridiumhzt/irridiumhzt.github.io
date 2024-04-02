@@ -10,17 +10,4 @@ Data-story telling for my final project
 
 ```
 
-**Analysis**
-**graph1**
-```{=html}
-<iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
-
-```
-
-**graph2**
-```{=html}
-<iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
-
-```
-
 **Conclusion**
