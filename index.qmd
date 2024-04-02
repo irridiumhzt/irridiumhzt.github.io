@@ -1,6 +1,26 @@
 ---
-title: "irridiumhzt.github.io"
+title: "NM2207 Final Project"
 ---
 
-##**NM2207 Final Project**
+**Background**
 Data-story telling for my final project
+
+```{=html}
+<iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
+
+```
+
+**Analysis**
+**graph1**
+```{=html}
+<iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
+
+```
+
+**graph2**
+```{=html}
+<iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
+
+```
+
+**Conclusion**

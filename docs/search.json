@@ -2,15 +2,15 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "irridiumhzt.github.io",
+    "title": "NM2207 Final Project",
     "section": "",
-    "text": "##NM2207 Final Project Data-story telling for my final project"
+    "text": "Background Data-story telling for my final project\n \n\nAnalysis graph1\n \n\ngraph2\n \n\nConclusion"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "This project aims to find stories in Europe LGBT acceptance data through visualisation via Shiny, ggplot2 and other functions with Rstudio."
   }
 ]
