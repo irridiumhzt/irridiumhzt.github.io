@@ -2,73 +2,16 @@
 title: "NM2207 Final Project"
 ---
 
+With Pink tourism on the rise, Europe is fast becoming one of the most popular travel destinations in the world. With higher purchasing power and willingness to spend, they could help to generate more revenues for the host countries. According to a survey conducted in the U.S. by Harris Interactive, LGBT adults report that on average they intended to spend $1300 between May and August 2021 for leisure, while the average planned expenditure is $1058. As such, being perceived as LGBT friendly would be a huge pulling factor for attracting LGBT tourists.
 
-**Background**
-Data-story telling for my final project
-
-```{r cars}
-summary(cars)
-library(tidyverse)
-library(ggplot2)
-library(dplyr)
-
-survey <- read_csv("LGBT_Survey_DailyLife.csv") 
-glimpse(survey)
-
-row.has.na <- apply(survey, 1, function(x){any(is.na(x))})
-sum(row.has.na)
-survey_clean <- survey[row.has.na,]
-clean_data = subset(survey_clean, CountryCode != "Average")
-
-data <- clean_data %>% 
-  group_by(CountryCode)%>%
-  summarise(count=n())%>%
-  mutate(Percentage = count / sum(count) * 100) %>%
-  arrange(desc(Percentage)) 
-
-country_order <- c("Ireland", "United Kingdom", "France", "Belgium", "Netherlands", "Luxembourg",
-                   "Denmark","Sweden","Finland","Estonia","Latvia","Lithuania",
-                   "Germany","Austria","Hungary","Czech Republic","Slovakia","Poland",
-                   "Bulgaria","Romania","Croatia","Greece","Slovenia",
-                   "Italy","Portugal","Spain","Malta","Cyprus")
-
-data$CountryCode <- factor(data$CountryCode, levels = country_order)
-
-# Arrange the data by the specified order of countries
-data <- arrange(data, CountryCode)
+In addition, I believe the public tends to discriminate even within LGBT community, making life worse for the non-binary and transgender minority in the group, as they are disproportionately targeted in hate crimes. According to the FBI's Hate Crime Statistics, transgender individuals, particularly transgender women of colour, are at a higher risk of experiencing violent hate crimes in the United States. I would like to investigate to what extent this is true in Europe.
 
 
+**Data Mutation**
+Using the dataset on Kaggle [https://www.kaggle.com/datasets/ruslankl/european-union-lgbt-survey-2012/data], 
+I have carried out Data Mutation to make sure that the data are not affected by small sample size.
+For rows, the ones labelled with [0] and [1] for notes would be avoided, since they correspond to NA and  small sample size, and thus not statistically relevant. 
 
-ggplot(data) + aes(x="", y = Percentage, fill = CountryCode)+   
-  geom_bar(width = 1, stat = "identity") +
-  theme_void() +
-  theme(legend.position = "bottom") +
-  geom_text(aes(label = paste0(round(Percentage), "%")), position = position_stack(vjust =0.5),size = 3)+
-  scale_fill_manual(values = c("bisque","red", "brown4", "maroon", "pink","coral", 
-           "orange","gold","yellow", "white","gray","black",
-           "blue", "deepskyblue3","cyan","aquamarine","turquoise","skyblue",
-           "cyan4", "darkolivegreen1","green","darkseagreen1", "lavender",  
-           "magenta","darkorchid1","blueviolet","tan", "beige")) +
-  labs(title = "Countries represented in the study") +
-  theme(plot.title = element_text(hjust = 0.5))+
-  coord_polar("y", start = 0) 
-
-data_1 <- clean_data %>% 
-  group_by(subset)%>%
-  summarise(count=n())%>%
-  mutate(Percentage = count / sum(count) * 100) %>%
-  arrange(desc(Percentage)) 
-
-ggplot(data_1) + aes(x="", y = Percentage, fill = subset)+   
-  geom_bar(width = 1, stat = "identity") +
-  theme_void() +
-  theme(legend.position = "bottom") +
-  geom_text(aes(label = paste0(round(Percentage), "%")), position = position_stack(vjust =0.5),size = 3)+
-   scale_fill_brewer(palette = "Set3") +
-  labs(title = "Genders represented in the study") +
-  theme(plot.title = element_text(hjust = 0.5))+
-  coord_polar("y", start = 0) 
-```
 
 ```{=html}
 <iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
