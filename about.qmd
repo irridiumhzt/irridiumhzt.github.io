@@ -3,3 +3,5 @@ title: "About"
 ---
  
 This project aims to find stories in Europe LGBT acceptance data through visualisation via Shiny, ggplot2 and other functions with Rstudio.
+
+# about
