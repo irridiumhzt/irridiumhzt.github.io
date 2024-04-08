@@ -13,9 +13,21 @@ I have carried out Data Mutation to make sure that the data are not affected by 
 For rows, the ones labelled with [0] and [1] for notes would be avoided, since they correspond to NA and  small sample size, and thus not statistically relevant. 
 
 
+    
+**All things considered, how satisfied would you say you are with your life these days**
+
 ```{=html}
 <iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
 
+
 ```
 
+
 **Conclusion**
+
+Overall, the three most LGBT friendly countries in EU are Luxembourg, the Netherlands, and Denmark.
+For Gay men, the most friendly country in EU is Luxembourg.
+For Lesbian women, the most friendly country in EU is the Netherlands.
+For Bisexual men, the most friendly country in EU is the Netherlands.
+For Bisexual women, the most friendly country in EU is the Austria.
+For Transgender individuals, the most friendly country is the Spain.

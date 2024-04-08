@@ -1,6 +1,11 @@
 ---
 title: "Analysis"
 ---
+
+**Background**
+This data story seeks to address: Which country is the most LGBT friendly within Europe? 
+Is there a difference across the different subgroups? (Genders:Gay, Lesbian, Bisexual, Transgender)
+
  
 ```{r cars}
 summary(cars)

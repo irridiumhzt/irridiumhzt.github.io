@@ -1,7 +1,7 @@
 ---
 title: "About"
 ---
+ I am a year 3 architecture student from NUS
  
 This project aims to find stories in Europe LGBT acceptance data through visualisation via Shiny, ggplot2 and other functions with Rstudio.
 
-# about

@@ -1,32 +1,71 @@
 library(shiny)
 library(tidyverse)
 library(ggplot2)
+library(dplyr)
 
-read_csv("LGBT_Survey_DailyLife.csv") 
+survey <- read_csv("LGBT_Survey_DailyLife.csv") 
 
+row.has.na <- apply(survey, 1, function(x){any(is.na(x))})
+sum(row.has.na)
+survey_clean <- survey[row.has.na,]
+data = subset(survey_clean, CountryCode != "Average")
 
+gay_data <- subset(data, subset == "Gay")
+lesbian_data <- subset(data, subset == "Lesbian")
+bisexual_man_data <- subset(data, subset == "Bisexual men")
+bisexual_woman_data <- subset(data, subset == "Bisexual women")
+trans_data <- subset(data, subset == "Transgender")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  selectInput("dataset", label = "Dataset", choices = ls("package:datasets")),
+  selectInput("gender", label = "Select Your Gender:", choices = c("Gay","Lesbian","Bisexual Man","Bisexual Woman","Non-binary")),
   verbatimTextOutput("summary"),
   tableOutput("table"),
   
   sidebarLayout(
-    sidebarPanel(sliderInput("samplesize","Sample Size:",min = 100,max = 10000,value = 1000)),
+    sidebarPanel(sliderInput("countrycount","number of countries displayed:",min = 1,max = 28,value = 28)),
     mainPanel(plotOutput("distPlot"))
   )
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
+  
+  selected_data <- reactive({
+    if (input$gender == "Gay") {
+      return(gay_data)
+    } else if (input$gender == "Lesbian") {
+      return(lesbian_data)
+    }
+    else if (input$gender == "Bisexual Man") {
+      return(bisexual_man_data)
+    }
+    else if (input$gender == "Bisexual Woman") {
+      return(bisexual_woman_data)
+    }
+    else return (trans_data)
+  })
+  
   output$distPlot <- renderPlot({
-    hist(rnorm(input$samplesize),col='darkorchid',xlab="",main="Standard Normally Distributed Sample")},
-    height=300
-  )
+    
+    g5_data <- selected_data() %>%
+      filter(question_code == "g5") %>%
+      select(CountryCode, answer) %>%
+      mutate(answer = as.numeric(answer)) %>% 
+      group_by(CountryCode) %>%
+      summarise(number = mean(answer, na.rm = TRUE)) %>%
+      arrange(desc(number)) %>%
+      head(input$countrycount) 
+    
+    ggplot(g5_data, aes(x = reorder(CountryCode, number), y = number, fill = number)) +
+      geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
+      scale_fill_gradient(low = "white", high = "blue") + # Color by satisfaction level
+      labs(title = "LGBT Satisfaction by Country",
+           x = "Country", y = "Average Satisfaction") +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  })
 }
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-
-
