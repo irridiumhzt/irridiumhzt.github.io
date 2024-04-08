@@ -5,7 +5,7 @@ account: irridiumhzt
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11642055
-bundleId: 8465728
+bundleId: 8465905
 url: https://irridiumhzt.shinyapps.io/Chart/
 version: 1
 asMultiple: FALSE

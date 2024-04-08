@@ -18,12 +18,12 @@ trans_data <- subset(data, subset == "Transgender")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  selectInput("gender", label = "Select Your Gender:", choices = c("Gay","Lesbian","Bisexual Man","Bisexual Woman","Non-binary")),
+  selectInput("gender", label = "Select Your Sexuality:", choices = c("Gay","Lesbian","Bisexual Man","Bisexual Woman","Non-binary")),
   verbatimTextOutput("summary"),
   tableOutput("table"),
   
   sidebarLayout(
-    sidebarPanel(sliderInput("countrycount","number of countries displayed:",min = 1,max = 28,value = 28)),
+    sidebarPanel(sliderInput("countrycount","Number of Countries",min = 1,max = 28,value = 28)),
     mainPanel(plotOutput("distPlot"))
   )
 )
@@ -62,6 +62,8 @@ server <- function(input, output) {
       scale_fill_gradient(low = "white", high = "blue") + # Color by satisfaction level
       labs(title = "LGBT Satisfaction by Country",
            x = "Country", y = "Average Satisfaction") +
+      geom_text(aes(label = paste0(round(number), "%")), position = position_stack(vjust =0.5),size = 3)+
+      theme_minimal() +
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
   })
