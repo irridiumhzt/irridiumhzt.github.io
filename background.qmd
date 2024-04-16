@@ -2,12 +2,14 @@
 title: "Analysis"
 ---
 
-**Background**
-This data story seeks to address: Which country is the most LGBT friendly within Europe? 
-Is there a difference across the different subgroups? (Genders:Gay, Lesbian, Bisexual, Transgender)
+##Origin of Data
 
+This page shows the distribution of surveyees from different **Sexualities** and **Countries**.
+As illustrated in the graph below, we have survey data from roughly equal proportions in northern, southern, eastern, western, and central Europe.
+
+Although 
  
-```{r cars}
+```{r, echo=FALSE}
 summary(cars)
 library(tidyverse)
 library(ggplot2)
@@ -37,8 +39,6 @@ data$CountryCode <- factor(data$CountryCode, levels = country_order)
 
 # Arrange the data by the specified order of countries
 data <- arrange(data, CountryCode)
-
-
 
 ggplot(data) + aes(x="", y = Percentage, fill = CountryCode)+   
   geom_bar(width = 1, stat = "identity") +
