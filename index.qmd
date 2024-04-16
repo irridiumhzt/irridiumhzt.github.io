@@ -14,9 +14,9 @@ title: "LGBT Acceptance in EU"
 5. The **Number of Country** tab display ranking of the selected few with the highest score in acceptance rating. Drag to 28 to see the least friendly country, according to perception of LGBT community. 
 
 ## Survey Questions:
-###1. Could you please specify whether it is **very rare**, **fairly rare**, **fairly widespread** or **very widespread** for discrimination to occur in the country where you live?
+1. How **widespread** are acts of **discrimination** in everyday life about LGBT?
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -44,9 +44,10 @@ ggplot(data_1, aes(x = answer, y = count, fill = count)) +
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
-###2. How **widespread** are **casual jokes** in everyday life about LGBT?
 
-```{r, echo=FALSE, message=FALSE}
+2. How **widespread** are **casual jokes** in everyday life about LGBT?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -76,7 +77,7 @@ ggplot(data_1, aes(x = answer, y = count, fill = count)) +
 
 ###3. Have you been **open** about you being L, G, B or T?
 
-```{r, echo=FALSE,message=FALSE}
+```{r, echo=FALSE,message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -103,12 +104,8 @@ ggplot(data_1) + aes(x="", y = count, fill = answer)+
   theme(plot.title = element_text(hjust = 0.5))+
   coord_polar("y", start = 0) 
 ```
-**Conclusion**
 
-While discrimination rating follows a normal distribution with the mean in the middle (It occurs sometimes), the result for casual jokes is barely skewed (it is fairly widespread). This illustrates that people still perceive LGBT community differently, and could possibly justify why only on average 7% of the surveyees are open in EU countries. 
-
-
-### 3. All things considered, how **satisfied** would you say you are with your life these days?
+4. All things considered, how **satisfied** would you say you are with your life these days?
   
 ```{=html}
 <iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
@@ -116,6 +113,8 @@ While discrimination rating follows a normal distribution with the mean in the m
 
 
 **Conclusion**
+
+While discrimination rating follows a normal distribution with the mean in the middle (It occurs sometimes), the result for casual jokes is barely skewed (it is fairly widespread). This illustrates that people still perceive LGBT community differently, and could possibly justify why only on average 7% of the surveyees are open in EU countries. 
 
 Overall, the three most LGBT friendly countries in EU are **Luxembourg**, the **Netherlands**, and **Denmark**.
 

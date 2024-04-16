@@ -11,7 +11,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This project aims to find the most LGBT friendly country in the European Union by through visualisation and analysis of survey data via Shiny, ggplot2 and other functions within Rstudio."
+    "text": "I am a year 3 architecture student in NUS."
   },
   {
     "objectID": "background.html",
@@ -32,7 +32,7 @@
     "href": "about.html#shift-in-attitude-is-needed",
     "title": "About",
     "section": "Shift in Attitude is needed?",
-    "text": "Shift in Attitude is needed?\nThat being said, discrimination against LGBT community, making life worse for the non-binary and transgender minority in the group, as they are disproportionately targeted in hate crimes. According to the FBI’s Hate Crime Statistics, transgender individuals, particularly transgender women of colour, are at a higher risk of experiencing violent hate crimes in the United States. I would like to investigate to what extent this is true in Europe.\n{r}\n#| eval=FALSE\n#| out.width=\"100%\"\nknitr::include_graphics(\"rainbow-map-2022.jpg\")"
+    "text": "Shift in Attitude is needed?\nThat being said, discrimination against LGBT community is still prevalent even among members of LGBT community, making life worse for the non-binary and transgender minority, as they are disproportionately targeted in hate crimes.\nAccording to the FBI’s Hate Crime Statistics, transgender individuals, particularly transgender women of colour, are at a higher risk of experiencing violent hate crimes in the United States. I would like to investigate to what extent this is true in Europe."
   },
   {
     "objectID": "index.html#data-mutation",
@@ -46,6 +46,13 @@
     "href": "index.html#survey-questions",
     "title": "LGBT Acceptance in EU",
     "section": "Survey Questions:",
-    "text": "Survey Questions:\n###1. Could you please specify whether it is very rare, fairly rare, fairly widespread or very widespread for discrimination to occur in the country where you live?\n\n\nWarning: In subset.data.frame(survey_clean, CountryCode = \"Average\") :\n extra argument 'CountryCode' will be disregarded\n\n\n\n\n\n###2. How widespread are casual jokes in everyday life about LGBT?\n\n\nWarning: In subset.data.frame(survey_clean, CountryCode = \"Average\") :\n extra argument 'CountryCode' will be disregarded\n\n\n\n\n\n###3. Have you been open about you being L, G, B or T?\n\n\nWarning: In subset.data.frame(survey_clean, CountryCode = \"Average\") :\n extra argument 'CountryCode' will be disregarded\n\n\n\n\n\nConclusion\nWhile discrimination rating follows a normal distribution with the mean in the middle (It occurs sometimes), the result for casual jokes is barely skewed (it is fairly widespread). This illustrates that people still perceive LGBT community differently, and could possibly justify why only on average 7% of the surveyees are open in EU countries.\n\n3. All things considered, how satisfied would you say you are with your life these days?\n \nConclusion\nOverall, the three most LGBT friendly countries in EU are Luxembourg, the Netherlands, and Denmark.\nFor Gay men, the most friendly country in EU is Luxembourg.\nFor Lesbian women, the most friendly country in EU is the Netherlands.\nFor Bisexual men, the most friendly country in EU is the Netherlands.\nFor Bisexual women, the most friendly country in EU is the Austria.\nFor Transgender individuals, the most friendly country is the Spain."
+    "text": "Survey Questions:\n\nHow widespread are acts of discrimination in everyday life about LGBT?\n\n\n\n\n\n\n\nHow widespread are casual jokes in everyday life about LGBT?\n\n\n\n\n\n\n###3. Have you been open about you being L, G, B or T?\n\n\n\n\n\n\nAll things considered, how satisfied would you say you are with your life these days?\n\n \nConclusion\nWhile discrimination rating follows a normal distribution with the mean in the middle (It occurs sometimes), the result for casual jokes is barely skewed (it is fairly widespread). This illustrates that people still perceive LGBT community differently, and could possibly justify why only on average 7% of the surveyees are open in EU countries.\nOverall, the three most LGBT friendly countries in EU are Luxembourg, the Netherlands, and Denmark.\nFor Gay men, the most friendly country in EU is Luxembourg.\nFor Lesbian women, the most friendly country in EU is the Netherlands.\nFor Bisexual men, the most friendly country in EU is the Netherlands.\nFor Bisexual women, the most friendly country in EU is the Austria.\nFor Transgender individuals, the most friendly country is the Spain."
+  },
+  {
+    "objectID": "about.html#how-far-have-we-gone",
+    "href": "about.html#how-far-have-we-gone",
+    "title": "About",
+    "section": "How far have we gone?",
+    "text": "How far have we gone?\nBelow illustrates a more recent survey done in 2022. Can you spot any difference in terms of countries’ ranking?"
   }
 ]

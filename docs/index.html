@@ -110,10 +110,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#data-mutation" id="toc-data-mutation" class="nav-link active" data-scroll-target="#data-mutation">Data Mutation</a></li>
-  <li><a href="#survey-questions" id="toc-survey-questions" class="nav-link" data-scroll-target="#survey-questions">Survey Questions:</a>
-  <ul class="collapse">
-  <li><a href="#all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days" id="toc-all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days" class="nav-link" data-scroll-target="#all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days">3. All things considered, how <strong>satisfied</strong> would you say you are with your life these days?</a></li>
-  </ul></li>
+  <li><a href="#survey-questions" id="toc-survey-questions" class="nav-link" data-scroll-target="#survey-questions">Survey Questions:</a></li>
   </ul>
 </nav>
     </div>
@@ -149,42 +146,34 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="survey-questions" class="level2">
 <h2 class="anchored" data-anchor-id="survey-questions">Survey Questions:</h2>
-<p>###1. Could you please specify whether it is <strong>very rare</strong>, <strong>fairly rare</strong>, <strong>fairly widespread</strong> or <strong>very widespread</strong> for discrimination to occur in the country where you live?</p>
+<ol type="1">
+<li>How <strong>widespread</strong> are acts of <strong>discrimination</strong> in everyday life about LGBT?</li>
+</ol>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: In subset.data.frame(survey_clean, CountryCode = "Average") :
- extra argument 'CountryCode' will be disregarded</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>###2. How <strong>widespread</strong> are <strong>casual jokes</strong> in everyday life about LGBT?</p>
+<ol start="2" type="1">
+<li>How <strong>widespread</strong> are <strong>casual jokes</strong> in everyday life about LGBT?</li>
+</ol>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: In subset.data.frame(survey_clean, CountryCode = "Average") :
- extra argument 'CountryCode' will be disregarded</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>###3. Have you been <strong>open</strong> about you being L, G, B or T?</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: In subset.data.frame(survey_clean, CountryCode = "Average") :
- extra argument 'CountryCode' will be disregarded</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><strong>Conclusion</strong></p>
-<p>While discrimination rating follows a normal distribution with the mean in the middle (It occurs sometimes), the result for casual jokes is barely skewed (it is fairly widespread). This illustrates that people still perceive LGBT community differently, and could possibly justify why only on average 7% of the surveyees are open in EU countries.</p>
-<section id="all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days" class="level3">
-<h3 class="anchored" data-anchor-id="all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days">3. All things considered, how <strong>satisfied</strong> would you say you are with your life these days?</h3>
+<ol start="4" type="1">
+<li>All things considered, how <strong>satisfied</strong> would you say you are with your life these days?</li>
+</ol>
 <iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
 <p><strong>Conclusion</strong></p>
+<p>While discrimination rating follows a normal distribution with the mean in the middle (It occurs sometimes), the result for casual jokes is barely skewed (it is fairly widespread). This illustrates that people still perceive LGBT community differently, and could possibly justify why only on average 7% of the surveyees are open in EU countries.</p>
 <p>Overall, the three most LGBT friendly countries in EU are <strong>Luxembourg</strong>, the <strong>Netherlands</strong>, and <strong>Denmark</strong>.</p>
 <p>For <strong>Gay men</strong>, the most friendly country in EU is <strong>Luxembourg</strong>.</p>
 <p>For <strong>Lesbian women</strong>, the most friendly country in EU is the <strong>Netherlands</strong>.</p>
@@ -193,7 +182,6 @@ ul.task-list li input[type="checkbox"] {
 <p>For <strong>Transgender individuals</strong>, the most friendly country is the <strong>Spain</strong>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

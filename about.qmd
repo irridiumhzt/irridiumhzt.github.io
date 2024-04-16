@@ -24,8 +24,7 @@ According to the FBI's Hate Crime Statistics, transgender individuals, particula
 Below illustrates a more recent survey done in 2022. Can you spot any difference in terms of countries' ranking? 
 
 ```{r, echo=FALSE}
-#| eval=TRUE
-#| out.width="100%"
+out.width="100%"
 knitr::include_graphics("rainbow-map-2022.jpg")
 ```
 
