@@ -16,7 +16,7 @@ title: "LGBT Acceptance in EU"
 ## Survey Questions:
 ###1. Could you please specify whether it is **very rare**, **fairly rare**, **fairly widespread** or **very widespread** for discrimination to occur in the country where you live?
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -31,7 +31,7 @@ data_1 <- clean_data %>%
   group_by(answer)%>%
   summarise(count=n())
 
-data_1$answer <- factor(data_1$answer, levels = c("Very rare", "Fairly rare", "Don`t know", "Fairly widespread", "Very widespread"))
+data_1$answer <- factor(data_1$answer, levels = c("Don`t know", "Very rare", "Fairly rare", "Fairly widespread", "Very widespread"))
 
 
 ggplot(data_1, aes(x = answer, y = count, fill = count)) +
@@ -46,7 +46,7 @@ ggplot(data_1, aes(x = answer, y = count, fill = count)) +
 ```
 ###2. How **widespread** are **casual jokes** in everyday life about LGBT?
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -61,7 +61,7 @@ data_1 <- clean_data %>%
   group_by(answer)%>%
   summarise(count=n())
 
-data_1$answer <- factor(data_1$answer, levels = c("Very rare", "Fairly rare", "Don`t know", "Fairly widespread", "Very widespread"))
+data_1$answer <- factor(data_1$answer, levels = c("Don`t know", "Very rare", "Fairly rare", "Fairly widespread", "Very widespread"))
 
 ggplot(data_1, aes(x = answer, y = count, fill = count)) +
       geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
@@ -76,7 +76,7 @@ ggplot(data_1, aes(x = answer, y = count, fill = count)) +
 
 ###3. Have you been **open** about you being L, G, B or T?
 
-```{r, echo=FALSE}
+```{r, echo=FALSE,message=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -93,18 +93,19 @@ data_1 <- clean_data %>%
 
 data_1$answer <- factor(data_1$answer, levels = c("Always open", "selectively open", "hide LGBT identity"))
 
-ggplot(data_1, aes(x = answer, y = count, fill = count)) +
-      geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
-      scale_fill_gradient(low = "white", high = "green") + # Color by satisfaction level
-      labs(title = "Openness on Average",
-           x = "Tendency to being open", y = "number of individuals") +
-      geom_text(aes(label = paste0(count)), position = position_stack(vjust =0.5),size = 3)+
-      theme_minimal() +
-      theme_minimal() +
-      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggplot(data_1) + aes(x="", y = count, fill = answer)+   
+  geom_bar(width = 1, stat = "identity") +
+  theme_void() +
+  theme(legend.position = "right") +
+  geom_text(aes(label = paste0(count), "surveyees"), position = position_stack(vjust =0.5),size = 6)+
+   scale_fill_brewer(palette = "Set2") +
+  labs(title = "Openness on Average") +
+  theme(plot.title = element_text(hjust = 0.5))+
+  coord_polar("y", start = 0) 
 ```
 **Conclusion**
 
+While discrimination rating follows a normal distribution with the mean in the middle (It occurs sometimes), the result for casual jokes is barely skewed (it is fairly widespread). This illustrates that people still perceive LGBT community differently, and could possibly justify why only on average 7% of the surveyees are open in EU countries. 
 
 
 ### 3. All things considered, how **satisfied** would you say you are with your life these days?
