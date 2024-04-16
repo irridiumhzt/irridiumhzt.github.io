@@ -7,8 +7,10 @@ title: "Analysis"
 This page shows the distribution of surveyees from different **Sexualities** and **Countries**.
 As illustrated in the graph below, we have survey data from roughly equal proportions in northern (Yellow Colour), southern(Purple), eastern(Green), western (Red), and central (Blue) Europe.
 
+**Summary of Data**
+
  
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
