@@ -5,20 +5,20 @@ title: "Analysis"
 ##Origin of Data
 
 This page shows the distribution of surveyees from different **Sexualities** and **Countries**.
-As illustrated in the graph below, we have survey data from roughly equal proportions in northern, southern, eastern, western, and central Europe.
+As illustrated in the graph below, we have survey data from roughly equal proportions in northern (Yellow Colour), southern(Purple), eastern(Green), western (Red), and central (Blue) Europe.
 
-Although 
  
 ```{r, echo=FALSE}
-summary(cars)
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
 
 survey <- read_csv("LGBT_Survey_DailyLife.csv") 
+print("Original Data Structure")
 glimpse(survey)
 
 row.has.na <- apply(survey, 1, function(x){any(is.na(x))})
+print("Available Number of Roles after removing NA and small sample size")
 sum(row.has.na)
 survey_clean <- survey[row.has.na,]
 clean_data = subset(survey_clean, CountryCode != "Average")

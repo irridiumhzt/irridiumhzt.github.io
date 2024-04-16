@@ -6,15 +6,109 @@ title: "LGBT Acceptance in EU"
 1. **Data Source** on Kaggle website  [https://www.kaggle.com/datasets/ruslankl/european-union-lgbt-survey-2022/data]
 
 2. Remove all data rows with indication of [0] and [1] in the **comment** column representing small sample size and N.A. which are not statistically relevant.
+ 
+3. The initial country_code column includes an option named **Average**, which I utilise for understanding the general sentiment in Europe. It would be removed for the country specific analysis later on.
 
-3. All numerical responses to the question belong to a specific subgroup in a certain country are averaged, and then ranked. Choose the **Sexuality** that you are interested in exploring on the tabset below. 
+4. For survey question 4, the numerical response (belong to a specific subgroup, in a certain country) are averaged and then ranked. Choose the **Sexuality** that you are interested in exploring on the tabset below. 
 
-4. The **Number of Country** tab display ranking of the selected few with the highest score in acceptance rating. Drag to 28 to see the least friendly country, according to perception of LGBT community. 
+5. The **Number of Country** tab display ranking of the selected few with the highest score in acceptance rating. Drag to 28 to see the least friendly country, according to perception of LGBT community. 
+
+## Survey Questions:
+###1. Could you please specify whether it is **very rare**, **fairly rare**, **fairly widespread** or **very widespread** for discrimination to occur in the country where you live?
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+
+survey <- read_csv("LGBT_Survey_DailyLife.csv") 
+row.has.na <- apply(survey, 1, function(x){any(is.na(x))})
+survey_clean <- survey[row.has.na,]
+clean_data = subset(survey_clean, CountryCode = "Average")
+
+data_1 <- clean_data %>% 
+  filter(question_code == "b1_a") %>%
+  group_by(answer)%>%
+  summarise(count=n())
+
+data_1$answer <- factor(data_1$answer, levels = c("Very rare", "Fairly rare", "Don`t know", "Fairly widespread", "Very widespread"))
+
+
+ggplot(data_1, aes(x = answer, y = count, fill = count)) +
+      geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
+      scale_fill_gradient(low = "white", high = "red") + # Color by satisfaction level
+      labs(title = "LGBT Discrimination on average",
+           x = "Occurance of Discrimivation", y = "number of individuals") +
+      geom_text(aes(label = paste0(count)), position = position_stack(vjust =0.5),size = 3)+
+      theme_minimal() +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+###2. How **widespread** are **casual jokes** in everyday life about LGBT?
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+
+survey <- read_csv("LGBT_Survey_DailyLife.csv") 
+row.has.na <- apply(survey, 1, function(x){any(is.na(x))})
+survey_clean <- survey[row.has.na,]
+clean_data = subset(survey_clean, CountryCode = "Average")
+
+data_1 <- clean_data %>% 
+  filter(question_code == "b1_b") %>%
+  group_by(answer)%>%
+  summarise(count=n())
+
+data_1$answer <- factor(data_1$answer, levels = c("Very rare", "Fairly rare", "Don`t know", "Fairly widespread", "Very widespread"))
+
+ggplot(data_1, aes(x = answer, y = count, fill = count)) +
+      geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
+      scale_fill_gradient(low = "white", high = "yellow") + # Color by satisfaction level
+      labs(title = "LGBT Jokes on average",
+           x = "Pervasiveness of Discrimivation", y = "number of individuals") +
+      geom_text(aes(label = paste0(count)), position = position_stack(vjust =0.5),size = 3)+
+      theme_minimal() +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+###3. Have you been **open** about you being L, G, B or T?
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+
+survey <- read_csv("LGBT_Survey_DailyLife.csv") 
+row.has.na <- apply(survey, 1, function(x){any(is.na(x))})
+survey_clean <- survey[row.has.na,]
+clean_data = subset(survey_clean, CountryCode = "Average")
+
+data_1 <- clean_data %>% 
+  filter(question_code == "open_at_school") %>%
+  group_by(answer)%>%
+  summarise(count=n())
+
+data_1$answer <- factor(data_1$answer, levels = c("Always open", "selectively open", "hide LGBT identity"))
+
+ggplot(data_1, aes(x = answer, y = count, fill = count)) +
+      geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
+      scale_fill_gradient(low = "white", high = "green") + # Color by satisfaction level
+      labs(title = "Openness on Average",
+           x = "Tendency to being open", y = "number of individuals") +
+      geom_text(aes(label = paste0(count)), position = position_stack(vjust =0.5),size = 3)+
+      theme_minimal() +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+**Conclusion**
 
 
 
-**All things considered, how satisfied would you say you are with your life these days?**
-
+### 3. All things considered, how **satisfied** would you say you are with your life these days?
+  
 ```{=html}
 <iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
 ```
@@ -25,7 +119,11 @@ title: "LGBT Acceptance in EU"
 Overall, the three most LGBT friendly countries in EU are **Luxembourg**, the **Netherlands**, and **Denmark**.
 
 For **Gay men**, the most friendly country in EU is **Luxembourg**.
+
 For **Lesbian women**, the most friendly country in EU is the **Netherlands**.
+
 For **Bisexual men**, the most friendly country in EU is the **Netherlands**.
+
 For **Bisexual women**, the most friendly country in EU is the **Austria**.
+
 For **Transgender individuals**, the most friendly country is the **Spain**.
