@@ -110,6 +110,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#data-mutation" id="toc-data-mutation" class="nav-link active" data-scroll-target="#data-mutation">Data Mutation</a></li>
+  <li><a href="#survey-questions" id="toc-survey-questions" class="nav-link" data-scroll-target="#survey-questions">Survey Questions:</a>
+  <ul class="collapse">
+  <li><a href="#all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days" id="toc-all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days" class="nav-link" data-scroll-target="#all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days">3. All things considered, how <strong>satisfied</strong> would you say you are with your life these days?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -138,16 +142,94 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p><strong>Data Source</strong> on Kaggle website [https://www.kaggle.com/datasets/ruslankl/european-union-lgbt-survey-2022/data]</p></li>
 <li><p>Remove all data rows with indication of [0] and [1] in the <strong>comment</strong> column representing small sample size and N.A. which are not statistically relevant.</p></li>
-<li><p>All numerical responses to the question belong to a specific subgroup in a certain country are averaged, and then ranked. Choose the <strong>Sexuality</strong> that you are interested in exploring on the tabset below.</p></li>
+<li><p>The initial country_code column includes an option named <strong>Average</strong>, which I utilise for understanding the general sentiment in Europe. It would be removed for the country specific analysis later on.</p></li>
+<li><p>For survey question 4, the numerical response (belong to a specific subgroup, in a certain country) are averaged and then ranked. Choose the <strong>Sexuality</strong> that you are interested in exploring on the tabset below.</p></li>
 <li><p>The <strong>Number of Country</strong> tab display ranking of the selected few with the highest score in acceptance rating. Drag to 28 to see the least friendly country, according to perception of LGBT community.</p></li>
 </ol>
-<p><strong>All things considered, how satisfied would you say you are with your life these days?</strong></p>
+</section>
+<section id="survey-questions" class="level2">
+<h2 class="anchored" data-anchor-id="survey-questions">Survey Questions:</h2>
+<p>###1. Could you please specify whether it is <strong>very rare</strong>, <strong>fairly rare</strong>, <strong>fairly widespread</strong> or <strong>very widespread</strong> for discrimination to occur in the country where you live?</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+Rows: 34020 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): CountryCode, subset, question_code, question_label, answer, percent...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: In subset.data.frame(survey_clean, CountryCode = "Average") :
+ extra argument 'CountryCode' will be disregarded</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>###2. How <strong>widespread</strong> are <strong>casual jokes</strong> in everyday life about LGBT?</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 34020 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): CountryCode, subset, question_code, question_label, answer, percent...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: In subset.data.frame(survey_clean, CountryCode = "Average") :
+ extra argument 'CountryCode' will be disregarded</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>###3. Have you been <strong>open</strong> about you being L, G, B or T?</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 34020 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): CountryCode, subset, question_code, question_label, answer, percent...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: In subset.data.frame(survey_clean, CountryCode = "Average") :
+ extra argument 'CountryCode' will be disregarded</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>Conclusion</strong></p>
+<section id="all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days" class="level3">
+<h3 class="anchored" data-anchor-id="all-things-considered-how-satisfied-would-you-say-you-are-with-your-life-these-days">3. All things considered, how <strong>satisfied</strong> would you say you are with your life these days?</h3>
 <iframe height="400" width="100%" frameborder="no" src="https://irridiumhzt.shinyapps.io/Chart/"> </iframe>
 <p><strong>Conclusion</strong></p>
 <p>Overall, the three most LGBT friendly countries in EU are <strong>Luxembourg</strong>, the <strong>Netherlands</strong>, and <strong>Denmark</strong>.</p>
-<p>For <strong>Gay men</strong>, the most friendly country in EU is <strong>Luxembourg</strong>. For <strong>Lesbian women</strong>, the most friendly country in EU is the <strong>Netherlands</strong>. For <strong>Bisexual men</strong>, the most friendly country in EU is the <strong>Netherlands</strong>. For <strong>Bisexual women</strong>, the most friendly country in EU is the <strong>Austria</strong>. For <strong>Transgender individuals</strong>, the most friendly country is the <strong>Spain</strong>.</p>
+<p>For <strong>Gay men</strong>, the most friendly country in EU is <strong>Luxembourg</strong>.</p>
+<p>For <strong>Lesbian women</strong>, the most friendly country in EU is the <strong>Netherlands</strong>.</p>
+<p>For <strong>Bisexual men</strong>, the most friendly country in EU is the <strong>Netherlands</strong>.</p>
+<p>For <strong>Bisexual women</strong>, the most friendly country in EU is the <strong>Austria</strong>.</p>
+<p>For <strong>Transgender individuals</strong>, the most friendly country is the <strong>Spain</strong>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

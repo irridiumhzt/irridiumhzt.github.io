@@ -60,7 +60,7 @@ server <- function(input, output) {
     ggplot(g5_data, aes(x = reorder(CountryCode, number), y = number, fill = number)) +
       geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
       scale_fill_gradient(low = "white", high = "blue") + # Color by satisfaction level
-      labs(title = "LGBT Satisfaction by Country",
+      labs(title = "LGBT Satisfaction rating by Country",
            x = "Country", y = "Average Satisfaction") +
       geom_text(aes(label = paste0(round(number), "%")), position = position_stack(vjust =0.5),size = 3)+
       theme_minimal() +
